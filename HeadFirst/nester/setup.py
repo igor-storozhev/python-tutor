@@ -2,9 +2,9 @@ from distutils.core import setup
 
 setup (
 	name		= "nester",
-	version		= '1.0.0',
+	version		= '1.3.0',
 	py_modules	= ['nester'],
 	author		= 'hfpython',
-	author_email= 'hfpython@headfirst.com',
-	url			= 'http://www.headfirstlabs.com',
+	author_email	= 'hfpython@headfirst.com',
+	url		= 'http://www.headfirstlabs.com',
 	description	= 'A simple printer of nested lists')
