@@ -1,4 +1,4 @@
-import nester
+import pickle
 
 man = []
 other = []
@@ -15,8 +15,8 @@ try:
 					other.append(line_spoken)
 			except ValueError:
 				pass
-	with open('man_data.txt','w') as man_file, open('other_data.txt','w') as other_file:
-		nester.print_lol(man,output=man_file)
-		nester.print_lol(other,output=other_file)
-except IOError as err:
-	print('IO Error: ' + str(err))
+	with open('man_data.txt','wb') as man_file, open('other_data.txt','wb') as other_file:
+		pickle.dump(man,man_file)
+		pickle.dump(other,other_file)
+except PickleError as perr:
+	print('Pickling error: ' + str(perr))
