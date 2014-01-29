@@ -17,27 +17,7 @@ try:
 except IOError as err:
 	print('File error: '+str(err))
 
-james = sorted([sanitize(time) for time in james])
-unique_james = []
-for time in james:
-	if time not in unique_james:
-		unique_james.append(time);
-print(unique_james[0:3])
-julie = sorted([sanitize(time) for time in julie])
-unique_julie = []
-for time in julie:
-	if time not in unique_julie:
-		unique_julie.append(time);
-print(unique_julie[0:3])
-mikey = sorted([sanitize(time) for time in mikey])
-unique_mikey = []
-for time in mikey:
-	if time not in unique_mikey:
-		unique_mikey.append(time);
-print(unique_mikey[0:3])
-sarah = sorted([sanitize(time) for time in sarah])
-unique_sarah = []
-for time in sarah:
-	if time not in unique_sarah:
-		unique_sarah.append(time);
-print(unique_sarah[0:3])
+print(sorted(set([sanitize(time) for time in james]))[0:3])
+print(sorted(set([sanitize(time) for time in julie]))[0:3])
+print(sorted(set([sanitize(time) for time in mikey]))[0:3])
+print(sorted(set([sanitize(time) for time in sarah]))[0:3])
