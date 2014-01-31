@@ -9,16 +9,17 @@ def get_coach_data(file_name):
 	try:
 		with open(file_name) as file_data:
 			data =  file_data.readline()
-		return(data.strip().split(','))
+			data = data.strip().split(',')
+		data_dict = {}
+		data_dict['Name'] = data.pop(0)
+		data_dict['Birthday'] = data.pop(0)
+		data_dict['Results'] = str(sorted(set([sanitize(t) for t in data]))[0:3])
+		return(data_dict)
 	except IOError as err:
 		print('File error: ' + str(err))
 		return(None)
 
 		
-sarah = get_coach_data('sarah2.txt')
-sarah_dict = {}
-sarah_dict['Name'] = sarah.pop(0)
-sarah_dict['Birthday'] = sarah.pop(0)
-sarah_dict['Results'] = sarah
-print(sarah_dict['Name'] + "'s fastest times are: " + str(sorted(set([sanitize(t) for t in sarah_dict['Results']]))[0:3]))
+sarah_dict = get_coach_data('sarah2.txt')
+print(sarah_dict['Name'] + "'s fastest times are: " + sarah_dict['Results'])
 
